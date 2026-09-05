@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Resume | Nathaniel Johnson{% endblock %}
+
+{% block content %}
+    <section class="resume-hero section">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="terminal-label">
+                <span></span>
+                RESUME / PROFILE
+            </div> 
+            <h1>My <span> Resume.</h1>
+            <p class="hero-description">
+                I'm Nathaniel Johnson, a self-taught Python and web developer focus on 
+                building useful software, web applications, desktop applications and practical
+                technology solutions.
+            </p>
+            <div class="hero-buttons">
+                <a class="btn secondary" href="{{ url_for('static', filename='files/Nathaniel_Johnson_Resume.pdf') }}" class="primary-btn" download>
+                    <img src="{{ url_for('static', filename='css/node_modules/bootstrap-icons/icons/cloud-arrow-down-fill.svg') }}" width="18" height="18" style="filter: invert(1); margin-right: 10px;">
+                    Download CV 
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock%}

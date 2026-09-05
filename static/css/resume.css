@@ -1,0 +1,54 @@
+.resume-hero{
+    position: relative;
+    padding: 100px 0 90px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+}
+
+.resume-hero::before{
+    content: "";
+    position: absolute;
+    width: 500px;
+    background: rgba(80, 255, 70, 0.08);
+    border-radius: 50%;
+    filter: blur(120px);
+    left: -180;
+    top: -150;
+    pointer-events: none;
+}
+
+.resume-hero::after{
+    content: "";
+    position: absolute;
+    width: 450px;
+    background: rgba(80, 255, 70, 0.06);
+    border-radius: 50%;
+    filter: blur(120px);
+    right: -180;
+    bottom: -200;
+    pointer-events: none;
+}
+
+.hero-container{
+    width: min(1100px, 90%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.1fr, 0.9fr;
+    align-items: center;
+    position: relative;
+    gap: 70px;
+    z-index: 2;
+}
+
+.hero-button span{color: var(--accent);}
+
+.terminal-label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+}

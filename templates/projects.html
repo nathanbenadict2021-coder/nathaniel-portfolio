@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Projects | Nathaniel Johnson{% endblock %}
+
+{% block content %}
+<section class="page-hero section">
+    <p class="eyebrow">SELECTED PROJECTS</p>
+    <h1>Things I've been <span>building.</span></h1>
+    <p>Projects that demonstrate my progress across software, databases, desktop development and web technologies.</p>
+</section>
+
+<section class="section">
+    <div class="project-grid">
+        <article class="project-card">
+            <div class="project-number">01</div>
+            <div class="project-content">
+                <p class="tag">PYTHON · PYQT6 · SQLITE</p>
+                <h2>OBD2 Diagnostic Scanner</h2>
+                <p>A desktop diagnostic application designed to communicate with an ELM-compatible OBD adapter, read vehicle data and manage diagnostic trouble codes.</p>
+                <div class="tech-list"><span>Python</span><span>PyQt6</span><span>SQLite</span><span>OBD-II</span></div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="project-number">02</div>
+            <div class="project-content">
+                <p class="tag">PYTHON · FLASK · DATABASE</p>
+                <h2>Business Web Applications</h2>
+                <p>Responsive business-focused web applications with forms, database storage, reusable templates and clean user interfaces.</p>
+                <div class="tech-list"><span>Flask</span><span>HTML</span><span>CSS</span><span>SQLite</span></div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="project-number">03</div>
+            <div class="project-content">
+                <p class="tag">ANDROID · FIREBASE · CLOUD</p>
+                <h2>Real Estate App</h2>
+                <p>A mobile application concept for browsing property listings, user profiles and cloud-based image storage.</p>
+                <div class="tech-list"><span>Kotlin</span><span>Firebase</span><span>Cloudinary</span></div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="project-number">04</div>
+            <div class="project-content">
+                <p class="tag">PYTHON · AUTOMATION</p>
+                <h2>Custom Business Tools</h2>
+                <p>Practical software ideas for inventory, point-of-sale workflows, data management and small-business automation.</p>
+                <div class="tech-list"><span>Python</span><span>SQLite</span><span>PyQt6</span></div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section cta">
+    <div>
+        <p class="eyebrow">YOUR PROJECT NEXT?</p>
+        <h2>Have an idea you want to turn into software?</h2>
+    </div>
+    <a class="btn primary" href="{{ url_for('contact') }}">Start a Conversation →</a>
+</section>
+{% endblock %}

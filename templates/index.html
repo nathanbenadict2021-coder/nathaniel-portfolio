@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Nathaniel Johnson | Python Developer{% endblock %}
+
+{% block content %}
+<section class="hero section">
+    <div class="hero-copy reveal">
+        <p class="eyebrow">PYTHON DEVELOPER · SOFTWARE BUILDER</p>
+        <h1>Turning ideas into <span>useful software.</span></h1>
+        <p class="hero-text">
+            I'm Nathaniel Johnson, a self-taught developer focused on Python,
+            Flask, desktop applications, databases, networking and practical
+            technology solutions.
+        </p>
+
+        <div class="hero-buttons">
+            <a class="btn primary" href="{{ url_for('projects') }}">View My Projects</a>
+            <a class="btn secondary" href="{{ url_for('contact') }}">Let's Work Together</a>
+            <a class="btn secondary" href="{{ url_for('resume') }}">
+                <img src="{{ url_for('static', filename='css/node_modules/bootstrap-icons/icons/cloud-arrow-down-fill.svg') }}" width="18" height="18" style="filter: invert(1); margin-right: 10px;">
+                Download CV
+            </a>
+        </div>
+
+        <div class="quick-stats">
+            <div><strong>Python</strong><span>Core Language</span></div>
+            <div><strong>Flask</strong><span>Web Development</span></div>
+            <div><strong>SQLite</strong><span>Data Storage</span></div>
+        </div>
+    </div>
+
+    <div class="terminal-card reveal">
+        <div class="terminal-top">
+            <span style="background:rgb(237, 95, 95);"></span><span style="background:rgb(85, 237, 93);"></span><span style="background:rgb(237, 237, 237);"></span>
+        </div>
+        <div class="terminal-body">
+            <p><span class="green">nathaniel@dev</span>:<span class="blue">~</span>$ python</p>
+            <p class="muted">>>> developer = "Nathaniel Johnson"</p>
+            <p class="muted">>>> skills = ["Python", "Flask", "Django"]</p>
+            <p class="muted">>>> developer.build()</p>
+            <p class="output">Building something useful...</p>
+            <p><span class="green">✓</span> Ready to create.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-heading">
+        <p class="eyebrow">WHAT I DO</p>
+        <h2>Development focused on real-world problems.</h2>
+    </div>
+
+    <div class="cards three fr-3">
+        <article class="card">
+            <div class="icon">⌘</div>
+            <h3>Python Development</h3>
+            <p>Building automation, desktop software, APIs and practical tools with Python.</p>
+        </article>
+        <article class="card">
+            <div class="icon">⌬</div>
+            <h3>Web Applications</h3>
+            <p>Creating clean, responsive applications with Flask, Django, HTML, CSS and JavaScript.</p>
+        </article>
+        <article class="card">
+            <div class="icon">◈</div>
+            <h3>Systems & Networking</h3>
+            <p>Combining software knowledge with hands-on computer, networking and technical troubleshooting skills.</p>
+        </article>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-heading">
+        <p class="eyebrow">EXPERIENCE</p>
+        <h2>Real-world  problems I have solved and knowledge obtained.</h2>
+    </div>
+
+    <div class="cards three fr-4">
+        <article class="card">
+                <img class="icon" src="{{ url_for('static', filename='css/node_modules/bootstrap-icons/icons/code-slash.svg') }}" width="28" height="28" style="filter: invert(74%) sepia(19%) saturate(1014%) hue-rotate(88deg) brightness(91%) contrast(89%);">
+            <h3>10+</h3>
+            <p>Projects Completed</p>
+        </article>
+        <article class="card">
+            <img class="icon" src="{{ url_for('static', filename='css/node_modules/bootstrap-icons/icons/briefcase.svg') }}" width="28" height="28" style="filter: invert(74%) sepia(19%) saturate(1014%) hue-rotate(88deg) brightness(91%) contrast(89%);">
+            <h3>10+</h3>
+            <p>Years Experience</p>
+        </article>
+        <article class="card">
+            <img class="icon" src="{{ url_for('static', filename='css/node_modules/bootstrap-icons/icons/mortarboard.svg') }}" width="28" height="28" style="filter: invert(74%) sepia(19%) saturate(1014%) hue-rotate(88deg) brightness(91%) contrast(89%);">
+            <h3>CCNA & Python</h3>
+            <p>Certificates</p>
+        </article>
+        <article class="card">
+            <img class="icon" src="{{ url_for('static', filename='css/node_modules/bootstrap-icons/icons/cup-hot.svg') }}" width="28" height="28" style="filter:invert(74%) sepia(19%) saturate(1014%) hue-rotate(88deg) brightness(91%) contrast(89%);">
+            <h3>Self-Taught</h3>
+            <p>Always Learning</p>
+        </article>
+    </div>
+</section>
+
+<section class="section cta">
+    <div>
+        <p class="eyebrow">HAVE A PROJECT?</p>
+        <h2>Let's build something valuable.</h2>
+    </div>
+    <a class="btn primary" href="{{ url_for('contact') }}">Contact Me →</a>
+</section>
+{% endblock %}

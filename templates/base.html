@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nathaniel Johnson — Python, Flask and software developer portfolio.">
+    <title>{% block title %}Nathaniel Johnson | Developer{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resume.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/node_modules/bootstrap-icons/icons') }}">
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="{{ url_for('index') }}" aria-label="Nathaniel Johnson home">
+            <img class="brand-photo" src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Nathaniel Johnson">
+            <span class="brand-text">
+                <strong>NATHANIEL <span>JOHNSON </span></strong>
+                <small><span class="angle">&#123;</span> Python Developer <span class="angle">&#125;</span></small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="nav-links">
+            <a href="{{ url_for('index') }}"class="{% if request.endpoint =='index' %} active{% endif %}">Home</a>
+            <a href="{{ url_for('about') }}"class="{% if request.endpoint =='about' %} active{% endif %}">About</a>
+            <a href="{{ url_for('projects') }}" class="{% if request.endpoint =='projects' %} active{% endif %}">Projects</a>
+            <a href="{{ url_for('resume') }}" class="{% if request.endpoint =='resume' %} active{% endif %}">My Resume</a>
+            <a href="{{ url_for('contact') }}" class="{% if request.endpoint =='contact' %} active{% endif %}">Contact</a>
+        </nav>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div>
+            <strong>Nathaniel Johnson</strong>
+            <p>Building practical technology with Python.</p>
+        </div>
+        <p>© <span id="year"></span> Nathaniel Johnson. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

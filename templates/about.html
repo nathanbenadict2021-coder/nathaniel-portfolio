@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}About | Nathaniel Johnson{% endblock %}
+
+{% block content %}
+<section class="page-hero-wrapper section">
+    <section class="page-hero">
+        <p class="eyebrow">ABOUT ME</p>
+        <h1>A developer who learns by <span>building.</span></h1>
+        <p>My goal is to use technology to solve practical problems and create useful software.</p>
+    </section>
+    <div>
+        <div class="dr-1">           
+                <img class="hero-photo" src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Nathaniel Johnson">
+        </div>
+    </div>
+</section>
+
+
+<section class="section about-grid">
+    <div>
+        <h2>My journey</h2>
+        <p>
+            I'm a self-taught computer programmer with a hands-on technical background.
+            I enjoy understanding how systems work from the hardware and networking layer
+            through to software.
+        </p>
+        <p>
+            I work primarily with Python and continue expanding into web development,
+            databases, AI/ML and network engineering.
+        </p>
+        <p>
+            My approach is simple: learn the fundamentals, build projects, test them,
+            fix what breaks, and keep improving.
+        </p>
+    </div>
+
+    <div class="skills-panel">
+        <h3>Technology Stack</h3>
+        <div class="skill"><span>Python</span><b>Advanced learning</b></div>
+        <div class="skill"><span>Flask</span><b>Web</b></div>
+        <div class="skill"><span>Django</span><b>Web</b></div>
+        <div class="skill"><span>PyQt6</span><b>Desktop</b></div>
+        <div class="skill"><span>SQLite</span><b>Database</b></div>
+        <div class="skill"><span>HTML / CSS / JS</span><b>Frontend</b></div>
+        <div class="skill"><span>Git / GitHub</span><b>Version Control</b></div>
+        <div class="skill"><span>Networking</span><b>CCNA</b></div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-heading">
+        <p class="eyebrow">CURRENT FOCUS</p>
+        <h2>What I'm working toward</h2>
+    </div>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <span>01</span>
+            <div><h3>Professional Python Development</h3><p>Strengthening software architecture, APIs, testing and clean code.</p></div>
+        </div>
+        <div class="timeline-item">
+            <span>02</span>
+            <div><h3>AI & Machine Learning</h3><p>Building a strong foundation in mathematics, Python and machine learning concepts.</p></div>
+        </div>
+        <div class="timeline-item">
+            <span>03</span>
+            <div><h3>Network Engineering</h3><p>Combining programming with networking knowledge to create stronger technical solutions.</p></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

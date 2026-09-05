@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Contact | Nathaniel Johnson{% endblock %}
+
+{% block content %}
+<section class="page-hero section">
+    <p class="eyebrow">GET IN TOUCH</p>
+    <h1>Let's talk about your <span>project.</span></h1>
+    <p>Have an idea, a software problem, or a development opportunity? Send me a message.</p>
+</section>
+
+<section class="section contact-grid">
+    <div class="contact-info">
+        <h2>Contact details</h2>
+        <p>Use the form to send a project inquiry. You can replace these placeholders with your actual contact information.</p>
+
+        <div class="contact-item">
+            <span>✉</span>
+            <div><small>EMAIL</small><strong>nathanbenadict2021@gmail.com</strong></div>
+        </div>
+        <div class="contact-item">
+            <span>⌁</span>
+            <div><small>LOCATION</small><strong>Monrovia, Liberia</strong></div>
+        </div>
+        <div class="contact-item">
+            <span>◆</span>
+            <div><small>GITHUB</small><strong>github.com/yourusername</strong></div>
+        </div>
+    </div>
+
+    <form class="contact-form" method="POST" action="{{ url_for('contact') }}">
+        <label>Name<input type="text" name="name" placeholder="Your name" required></label>
+        <label>Email<input type="email" name="email" placeholder="you@example.com" required></label>
+        <label>Subject<input type="text" name="subject" placeholder="What can I help with?" required></label>
+        <label>Message<textarea name="message" rows="7" placeholder="Tell me about your project..." required></textarea></label>
+        <button class="btn primary" type="submit">Send Message →</button>
+    </form>
+</section>
+{% endblock %}
