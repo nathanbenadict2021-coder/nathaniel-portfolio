@@ -2,70 +2,123 @@
 {% block title %}About | Nathaniel Johnson{% endblock %}
 
 {% block content %}
-<section class="page-hero-wrapper section">
-    <section class="page-hero">
+<section class="about-hero section">
+    <div class="about-hero-copy">
         <p class="eyebrow">ABOUT ME</p>
-        <h1>A developer who learns by <span>building.</span></h1>
-        <p>My goal is to use technology to solve practical problems and create useful software.</p>
-    </section>
-    <div>
-        <div class="dr-1">           
-                <img class="hero-photo" src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Nathaniel Johnson">
+        <h1>Building practical solutions, from <span>systems to software.</span></h1>
+        <p class="about-lead">
+            I am a self-taught technology professional with more than a decade of hands-on automotive
+            mechanical and electrical experience, now applying that same diagnostic mindset to software,
+            networking, and IT.
+        </p>
+        <div class="hero-buttons">
+            <a class="btn primary" href="{{ url_for('projects') }}">Explore my projects</a>
+            <a class="btn secondary" href="{{ url_for('resume') }}">View résumé</a>
+        </div>
+    </div>
+
+    <div class="about-profile-card">
+        <div class="about-photo-wrap">
+            <img class="about-photo" src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Nathaniel Johnson">
+        </div>
+        <div class="profile-details">
+            <strong>Nathaniel Johnson</strong>
+            <span>Python Developer · Network Technician</span>
+            <span>Liberia</span>
         </div>
     </div>
 </section>
 
-
-<section class="section about-grid">
-    <div>
-        <h2>My journey</h2>
+<section class="section about-intro-grid">
+    <div class="about-story">
+        <p class="eyebrow">MY APPROACH</p>
+        <h2>Technical work grounded in curiosity and real-world problem solving.</h2>
         <p>
-            I'm a self-taught computer programmer with a hands-on technical background.
-            I enjoy understanding how systems work from the hardware and networking layer
-            through to software.
+            My background in automotive diagnostics taught me to observe carefully, trace problems to their
+            source, and make repairs that last. That same approach now guides how I build applications and
+            work with technology.
         </p>
         <p>
-            I work primarily with Python and continue expanding into web development,
-            databases, AI/ML and network engineering.
-        </p>
-        <p>
-            My approach is simple: learn the fundamentals, build projects, test them,
-            fix what breaks, and keep improving.
+            I learn by combining fundamentals with hands-on projects—planning a solution, building it,
+            testing it, improving it, and documenting what I learn along the way. I am especially interested
+            in work where software, networks, and physical systems meet.
         </p>
     </div>
 
-    <div class="skills-panel">
-        <h3>Technology Stack</h3>
-        <div class="skill"><span>Python</span><b>Advanced learning</b></div>
-        <div class="skill"><span>Flask</span><b>Web</b></div>
-        <div class="skill"><span>Django</span><b>Web</b></div>
-        <div class="skill"><span>PyQt6</span><b>Desktop</b></div>
-        <div class="skill"><span>SQLite</span><b>Database</b></div>
-        <div class="skill"><span>HTML / CSS / JS</span><b>Frontend</b></div>
-        <div class="skill"><span>Git / GitHub</span><b>Version Control</b></div>
-        <div class="skill"><span>Networking</span><b>CCNA</b></div>
+    <div class="about-principles">
+        <article>
+            <span>01</span>
+            <div><h3>Build with purpose</h3><p>Focus on useful, dependable solutions to practical problems.</p></div>
+        </article>
+        <article>
+            <span>02</span>
+            <div><h3>Learn continuously</h3><p>Strengthen skills through deliberate study and applied projects.</p></div>
+        </article>
+        <article>
+            <span>03</span>
+            <div><h3>Understand the system</h3><p>Connect hardware, networks, data, and software instead of treating them in isolation.</p></div>
+        </article>
     </div>
 </section>
 
 <section class="section">
     <div class="section-heading">
+        <p class="eyebrow">CAPABILITIES</p>
+        <h2>A growing, hands-on technology stack.</h2>
+        <p>Tools and areas I use to build, troubleshoot, and support practical technology solutions.</p>
+    </div>
+
+    <div class="capability-grid">
+        <article class="capability-card">
+            <p class="capability-number">01</p>
+            <h3>Software development</h3>
+            <p>Python, object-oriented programming, Flask, PyQt6, SQLite, REST API fundamentals, Git, and GitHub.</p>
+        </article>
+        <article class="capability-card">
+            <p class="capability-number">02</p>
+            <h3>Web development</h3>
+            <p>Responsive interfaces and Flask applications using HTML5, CSS3, JavaScript fundamentals, and reusable templates.</p>
+        </article>
+        <article class="capability-card">
+            <p class="capability-number">03</p>
+            <h3>IT &amp; networking</h3>
+            <p>Windows and Linux troubleshooting, TCP/IP, network configuration, Cisco networking, and technical support.</p>
+        </article>
+        <article class="capability-card">
+            <p class="capability-number">04</p>
+            <h3>Automotive technology</h3>
+            <p>Electrical fault finding, vehicle diagnostics, wiring, preventive maintenance, sensors, and OBD-II systems.</p>
+        </article>
+    </div>
+</section>
+
+<section class="section about-focus">
+    <div class="section-heading">
         <p class="eyebrow">CURRENT FOCUS</p>
-        <h2>What I'm working toward</h2>
+        <h2>Where I am headed next.</h2>
     </div>
 
     <div class="timeline">
-        <div class="timeline-item">
+        <article class="timeline-item">
             <span>01</span>
-            <div><h3>Professional Python Development</h3><p>Strengthening software architecture, APIs, testing and clean code.</p></div>
-        </div>
-        <div class="timeline-item">
+            <div><h3>Professional Python development</h3><p>Strengthening software architecture, APIs, testing practices, and clean, maintainable code.</p></div>
+        </article>
+        <article class="timeline-item">
             <span>02</span>
-            <div><h3>AI & Machine Learning</h3><p>Building a strong foundation in mathematics, Python and machine learning concepts.</p></div>
-        </div>
-        <div class="timeline-item">
+            <div><h3>Network engineering</h3><p>Building on CCNA training to develop stronger network configuration and troubleshooting skills.</p></div>
+        </article>
+        <article class="timeline-item">
             <span>03</span>
-            <div><h3>Network Engineering</h3><p>Combining programming with networking knowledge to create stronger technical solutions.</p></div>
-        </div>
+            <div><h3>Automotive diagnostics &amp; software</h3><p>Combining Python development with computer-based diagnostics and OBD-II technology.</p></div>
+        </article>
     </div>
+</section>
+
+<section class="section cta about-cta">
+    <div>
+        <p class="eyebrow">LET'S CONNECT</p>
+        <h2>Interested in working together?</h2>
+    </div>
+    <a class="btn primary" href="{{ url_for('contact') }}">Start a conversation</a>
 </section>
 {% endblock %}

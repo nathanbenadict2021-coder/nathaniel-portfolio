@@ -52,3 +52,71 @@
     letter-spacing: 2px;
     margin-bottom: 22px;
 }
+
+.hero-description,
+.section-heading > p:not(.eyebrow),
+.resume-entry > p,
+.resume-entry li,
+.resume-contact p {
+    color: var(--muted);
+}
+
+.hero-description {
+    max-width: 620px;
+    margin-top: 24px;
+    font-size: 1.08rem;
+}
+
+.hero-buttons .btn span { margin-left: 8px; font-size: 1.2rem; }
+
+.resume-summary {
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(82, 224, 141, .1), rgba(255,255,255,.02));
+}
+
+.summary-item {
+    display: grid;
+    gap: 2px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+}
+
+.summary-item span { color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 1.3rem; font-weight: 700; }
+.summary-item small { color: var(--muted); }
+
+.resume-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, .8fr);
+    gap: 55px;
+    align-items: start;
+}
+
+.resume-main { display: grid; gap: 55px; }
+.resume-section { display: grid; gap: 18px; }
+.resume-entry { border-top: 1px solid var(--line); padding-top: 22px; }
+.entry-heading { display: flex; justify-content: space-between; gap: 20px; }
+.entry-heading h3, .resume-entry h3 { font-size: 1.12rem; }
+.entry-heading p, .entry-tech { color: var(--accent) !important; font-family: "JetBrains Mono", monospace; font-size: .78rem; margin-top: 4px; }
+.entry-heading time { color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: .78rem; white-space: nowrap; }
+.resume-entry ul { margin: 16px 0 0 20px; display: grid; gap: 8px; }
+.resume-projects { display: grid; gap: 18px; }
+.resume-entry.compact { padding-top: 18px; }
+.resume-entry.compact > p:not(.entry-tech) { margin-top: 8px; }
+
+.resume-sidebar { display: grid; gap: 25px; position: sticky; top: 24px; }
+.resume-contact { display: grid; gap: 10px; padding: 28px; border: 1px solid var(--line); border-radius: 14px; }
+.resume-contact a { color: var(--accent-2); overflow-wrap: anywhere; }
+.resume-contact a:hover { color: var(--accent); }
+.resume-contact p:last-child { margin-top: 7px; font-size: .9rem; }
+
+@media (max-width: 820px) {
+    .hero-container, .resume-layout { grid-template-columns: 1fr; gap: 40px; }
+    .resume-sidebar { position: static; }
+}
+
+@media (max-width: 520px) {
+    .resume-hero { padding: 70px 0; }
+    .entry-heading { display: grid; gap: 5px; }
+}

@@ -4,6 +4,7 @@ __pycache__/
 venv/
 env/
 portfolio.db
+instance/
 .env
 .vscode/
 .idea/

@@ -1,77 +1,42 @@
-# Nathaniel Johnson — Flask Developer Portfolio
+# Nathaniel Johnson Portfolio
 
-A modern, responsive developer portfolio built with Python and Flask.
+A Flask portfolio site with résumé downloads and a contact form that stores messages in SQLite.
 
-## Features
-
-- Responsive developer portfolio
-- Home, About, Projects and Contact pages
-- Project showcase
-- Skills and technology sections
-- SQLite database for contact messages
-- Flash messages for form feedback
-- Simple Flask architecture that is easy to extend
-- Health-check endpoint at `/health`
-
-## 1. Create a virtual environment
-
-### Windows
+## Run locally
 
 ```bash
 python -m venv .venv
-.venv\Scripts\activate
-```
-
-### Linux/macOS
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-## 2. Install dependencies
-
-```bash
+.venv\Scripts\activate  # Windows
 pip install -r requirements.txt
-```
-
-## 3. Run the application
-
-```bash
 python app.py
 ```
 
-Open:
+Visit `http://127.0.0.1:5000`.
 
-```text
-http://127.0.0.1:5000
-```
+For local development, the database is created at `instance/portfolio.db`.
 
-The SQLite database is created automatically the first time the app starts.
+## Deploy to Render
 
-## Customize
+1. Push this repository to GitHub.
+2. In Render, select **New > Blueprint** and choose the repository. Render reads `render.yaml` and creates the web service.
+3. Deploy. Render automatically generates `SECRET_KEY`, serves the application with Gunicorn, checks `/health`, and mounts a persistent disk at `/var/data` for the contact-form database.
 
-Edit the content in:
+The included disk is required for contact messages to survive deploys and restarts. Render persistent disks require a paid web service; if you use a service without a disk, the site works but contact-form messages are temporary. For a no-disk production deployment, use a managed PostgreSQL database instead.
 
-- `templates/index.html`
-- `templates/about.html`
-- `templates/projects.html`
-- `templates/contact.html`
+### Render environment variables
 
-Change styling in:
+The Blueprint configures these automatically:
 
-- `static/css/style.css`
+- `SECRET_KEY`: securely generated for Flask sessions and flash messages.
+- `SESSION_COOKIE_SECURE=true`: restricts session cookies to HTTPS.
+- `RENDER_DISK_PATH=/var/data`: stores SQLite data on Render's persistent disk.
 
-Change interactive behavior in:
+To use another writable database location, set `DATABASE_PATH` to the complete SQLite file path.
 
-- `static/js/script.js`
+## Production details
 
-Replace the placeholder profile image with your own image:
-
-```text
-static/images/profile.jpg
-```
-
-## Production note
-
-Before deploying publicly, change `SECRET_KEY`, turn off Flask debug mode, and use a production WSGI server.
+- Gunicorn is used instead of Flask's development server.
+- Debug mode is disabled.
+- A one-megabyte request limit and basic contact-form length validation are enabled.
+- Reverse-proxy headers are handled for Render HTTPS.
+- `/health` is available as a health check.
