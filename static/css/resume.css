@@ -1,3 +1,4 @@
+/* Resume-only styles; shared colors and buttons come from style.css. */
 .resume-hero{
     position: relative;
     padding: 100px 0 90px;
@@ -86,6 +87,7 @@
 .summary-item span { color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 1.3rem; font-weight: 700; }
 .summary-item small { color: var(--muted); }
 
+/* Main resume content plus sticky sidebar on larger screens. */
 .resume-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.6fr) minmax(280px, .8fr);
@@ -111,6 +113,7 @@
 .resume-contact a:hover { color: var(--accent); }
 .resume-contact p:last-child { margin-top: 7px; font-size: .9rem; }
 
+/* Stack the résumé sections and disable sticky positioning on small screens. */
 @media (max-width: 820px) {
     .hero-container, .resume-layout { grid-template-columns: 1fr; gap: 40px; }
     .resume-sidebar { position: static; }

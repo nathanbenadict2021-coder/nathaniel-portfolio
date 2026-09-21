@@ -1,18 +1,29 @@
+# Render deployment settings. Keep healthCheckPath aligned with the Flask route in app.py.
 services:
   - type: web
     name: nathaniel-portfolio
     runtime: python
+    region: oregon
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 60 app:app
+    # Render supplies PORT; send logs to its dashboard for deploy troubleshooting.
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 60 --access-logfile - --error-logfile - app:app
     healthCheckPath: /health
+    # Deploy each successful commit from the linked repository branch.
+    autoDeployTrigger: commit
+    # These values protect sessions and connect the app to managed PostgreSQL.
     envVars:
       - key: SECRET_KEY
         generateValue: true
       - key: SESSION_COOKIE_SECURE
         value: "true"
-      - key: RENDER_DISK_PATH
-        value: /var/data
-    disk:
-      name: portfolio-data
-      mountPath: /var/data
-      sizeGB: 1
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nathaniel-portfolio-db
+          property: connectionString
+
+# The web service uses this database over Render's private network.
+databases:
+  - name: nathaniel-portfolio-db
+    plan: free
+    region: oregon
+    postgresMajorVersion: "17"

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}FAQ | Nathaniel Johnson{% endblock %}
+
+{% block content %}
+<!-- FAQ content: add a details block for each recurring visitor or client question. -->
+<section class="page-hero section">
+    <p class="eyebrow">FREQUENTLY ASKED QUESTIONS</p>
+    <h1>A few things you may want to <span>know.</span></h1>
+    <p>Answers about my background, the kinds of work I enjoy, and how to start a conversation.</p>
+</section>
+
+<section class="section faq-layout">
+    <div class="faq-intro">
+        <p class="eyebrow">QUICK ANSWERS</p>
+        <h2>Let's make the next step simple.</h2>
+        <p>If your question is not covered here, send me a message. I am always happy to discuss a project or opportunity.</p>
+        <a class="btn secondary" href="{{ url_for('contact') }}">Ask a question</a>
+    </div>
+
+    <!-- Native details elements provide accessible open/close interaction without extra JavaScript. -->
+    <div class="faq-list">
+        <details open>
+            <summary>What kind of development work do you do?</summary>
+            <p>I build practical Python and Flask applications, including responsive websites, database-backed forms, automation tools, and desktop software concepts.</p>
+        </details>
+        <details>
+            <summary>What technologies do you work with?</summary>
+            <p>My core toolkit includes Python, Flask, HTML, CSS, JavaScript fundamentals, SQLite, Git, GitHub, and PyQt6. I also have hands-on experience with networking and automotive diagnostics.</p>
+        </details>
+        <details>
+            <summary>Are you available for entry-level roles or collaborations?</summary>
+            <p>Yes. I am interested in opportunities where I can contribute, learn from a team, and keep growing as a software and technology professional.</p>
+        </details>
+        <details>
+            <summary>Can you help turn an idea into a working application?</summary>
+            <p>Yes. A good first step is to discuss the problem, the people using the solution, and the smallest useful version to build. From there, we can outline a practical path forward.</p>
+        </details>
+        <details>
+            <summary>How can I get in touch?</summary>
+            <p>Use the contact form or reach out through the email and social links on the contact page. Include a little context about your project or opportunity, and I will respond as soon as I can.</p>
+        </details>
+    </div>
+</section>
+{% endblock %}

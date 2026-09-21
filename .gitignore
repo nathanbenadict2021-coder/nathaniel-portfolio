@@ -8,3 +8,6 @@ instance/
 .env
 .vscode/
 .idea/
+.db
+.sqlite
+.sqlite3

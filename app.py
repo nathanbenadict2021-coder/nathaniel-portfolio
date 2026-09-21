@@ -12,22 +12,33 @@ RESUME_DIRECTORY = BASE_DIR / "templates" / "resume"
 
 
 def get_database_path() -> Path:
-    """Choose a writable database location for local and Render deployments."""
+    """Choose a writable SQLite database location for local development.
+
+    Change these environment-variable rules if messages move to another database service.
+    """
     configured_path = os.getenv("DATABASE_PATH")
     if configured_path:
         return Path(configured_path)
-
-    render_disk_path = os.getenv("RENDER_DISK_PATH")
-    if render_disk_path:
-        return Path(render_disk_path) / "portfolio.db"
 
     return BASE_DIR / "instance" / "portfolio.db"
 
 
 DATABASE = get_database_path()
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+
+def uses_postgres() -> bool:
+    """Use PostgreSQL when a deployment supplies DATABASE_URL."""
+    return bool(DATABASE_URL)
 
 
 def get_db():
+    # Import lazily so local SQLite development remains dependency-free.
+    if uses_postgres():
+        import psycopg
+
+        return psycopg.connect(DATABASE_URL)
+
     DATABASE.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DATABASE, timeout=10)
     conn.row_factory = sqlite3.Row
@@ -35,22 +46,37 @@ def get_db():
 
 
 def init_db():
-    with get_db() as conn:
-        conn.execute(
-            """
-            CREATE TABLE IF NOT EXISTS messages (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                email TEXT NOT NULL,
-                subject TEXT NOT NULL,
-                message TEXT NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-            """
+    # Keep both schemas aligned when adding persisted contact fields. PostgreSQL
+    # uses BIGSERIAL, while SQLite uses its compatible AUTOINCREMENT syntax.
+    create_messages_table = (
+        """
+        CREATE TABLE IF NOT EXISTS messages (
+            id BIGSERIAL PRIMARY KEY,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            subject TEXT NOT NULL,
+            message TEXT NOT NULL,
+            created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
         )
+        """
+        if uses_postgres()
+        else """
+        CREATE TABLE IF NOT EXISTS messages (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            subject TEXT NOT NULL,
+            message TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        """
+    )
+    with get_db() as conn:
+        conn.execute(create_messages_table)
 
 
 def create_app():
+    # Keep all site-page routes together so new navigation pages are easy to register.
     app = Flask(__name__)
     app.config.update(
         SECRET_KEY=os.getenv("SECRET_KEY") or secrets.token_urlsafe(32),
@@ -77,6 +103,14 @@ def create_app():
     def projects():
         return render_template("projects.html")
 
+    @app.route("/testimonials")
+    def testimonials():
+        return render_template("testimonials.html")
+
+    @app.route("/faq")
+    def faq():
+        return render_template("faq.html")
+
     @app.route("/resume")
     def resume():
         return render_template("resume.html")
@@ -91,12 +125,14 @@ def create_app():
 
     @app.route("/contact", methods=["GET", "POST"])
     def contact():
+        # The form field names must stay in sync with templates/contact.html.
         if request.method == "POST":
             name = request.form.get("name", "").strip()
             email = request.form.get("email", "").strip()
             subject = request.form.get("subject", "").strip()
             message = request.form.get("message", "").strip()
 
+            # Update validation limits when the contact form fields or database schema changes.
             if not all([name, email, subject, message]):
                 flash("Please complete all fields.", "error")
                 return redirect(url_for("contact"))
@@ -110,12 +146,13 @@ def create_app():
                 return redirect(url_for("contact"))
 
             try:
+                placeholders = "%s, %s, %s, %s" if uses_postgres() else "?, ?, ?, ?"
                 with get_db() as conn:
                     conn.execute(
-                        "INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)",
+                        f"INSERT INTO messages (name, email, subject, message) VALUES ({placeholders})",
                         (name, email, subject, message),
                     )
-            except sqlite3.Error:
+            except Exception:
                 app.logger.exception("Unable to save contact message")
                 flash("Sorry, your message could not be saved. Please try again later.", "error")
                 return redirect(url_for("contact"))
@@ -131,6 +168,7 @@ def create_app():
 
     @app.errorhandler(413)
     def request_too_large(_error):
+        # This response matches the MAX_CONTENT_LENGTH setting above.
         flash("Your submission is too large. Please try again with a shorter message.", "error")
         return redirect(url_for("contact"))
 

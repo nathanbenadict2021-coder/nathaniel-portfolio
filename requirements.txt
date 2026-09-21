@@ -1,2 +1,6 @@
+# Web framework used by app.py; keep this range compatible with the application's Flask APIs.
 Flask>=3.1,<4
+# Production application server referenced by render.yaml.
 gunicorn>=23.0,<24
+# PostgreSQL driver used when Render supplies DATABASE_URL; SQLite needs no extra package locally.
+psycopg[binary]>=3.2,<4

@@ -2,6 +2,7 @@
 {% block title %}Contact | Nathaniel Johnson{% endblock %}
 
 {% block content %}
+<!-- Contact details and social URLs: update this section whenever contact information changes. -->
 <section class="page-hero section">
     <p class="eyebrow">GET IN TOUCH</p>
     <h1>Let's build something <span>useful.</span></h1>
@@ -44,7 +45,7 @@
             </span>
             <div>
                 <small>LINKEDIN</small>
-                <a href="https://www.linkedin.com/in/nathaniel-johnson-2b33953b4" target="_blank" rel="noopener noreferrer">linkedin.com/in/nathaniel-johnson-2b33953b4 <span aria-hidden="true">↗</span></a>
+                <a href="https://www.linkedin.com/in/nathaniel-johnson-2b33953b4" target="_blank" rel="noopener noreferrer">Linkedin Profile</a>
             </div>
         </div>
         <div class="contact-item">
@@ -53,7 +54,7 @@
             </span>
             <div>
                 <small>GITHUB</small>
-                <a href="https://github.com/nathanbenadict2021-coder" target="_blank" rel="noopener noreferrer">github.com/nathanbenadict2021-coder <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/nathanbenadict2021-coder" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
             </div>
         </div>
         <div class="contact-item contact-item-placeholder">
@@ -63,11 +64,12 @@
             <div>
                 <small>FACEBOOK</small>
                 <!-- Replace the # below with your Facebook profile URL when ready. -->
-                <a href="https://facebook.com/share/1C3Qz3Tgdd/" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile link">Facebook profile <span aria-hidden="true">↗</span></a>
+                <a href="https://facebook.com/share/1C3Qz3Tgdd/" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile link">Facebook Profile</a>
             </div>
         </div>
     </div>
 
+    <!-- Field names must match the values read and validated in app.py's contact route. -->
     <form class="contact-form" method="POST" action="{{ url_for('contact') }}">
         <label>Name<input type="text" name="name" placeholder="Your name" required></label>
         <label>Email<input type="email" name="email" placeholder="you@example.com" required></label>

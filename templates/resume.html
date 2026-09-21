@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Resume | Nathaniel Johnson{% endblock %}
 {% block page_styles %}
+<!-- Resume-only layout rules live in static/css/resume.css. -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/resume.css') }}">
 {% endblock %}
 
 {% block content %}
+<!-- Resume content: keep work history, projects, qualifications, and contact links current. -->
 <section class="resume-hero section">
     <div class="hero-container">
         <div class="hero-content">
@@ -43,6 +45,7 @@
             </p>
         </div>
 
+        <!-- Experience entries: duplicate a resume-entry to add another role. -->
         <section class="resume-section">
             <p class="eyebrow">EXPERIENCE</p>
             <article class="resume-entry">
@@ -62,6 +65,7 @@
             </article>
         </section>
 
+        <!-- Project entries: update these alongside the dedicated Projects page when appropriate. -->
         <section class="resume-section">
             <p class="eyebrow">SOFTWARE DEVELOPMENT PROJECTS</p>
             <div class="resume-projects">
@@ -96,6 +100,7 @@
         </section>
     </div>
 
+    <!-- Sidebar contains a concise, editable skills list and direct contact links. -->
     <aside class="resume-sidebar">
         <section class="skills-panel">
             <h3>Core skills</h3>

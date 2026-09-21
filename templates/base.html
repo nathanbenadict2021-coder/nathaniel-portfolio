@@ -13,6 +13,7 @@
     {% block page_styles %}{% endblock %}
 </head>
 <body>
+    <!-- Shared site header: add or reorder navigation links here for every page. -->
     <header class="navbar">
         <a class="brand" href="{{ url_for('index') }}" aria-label="Nathaniel Johnson home">
             <img class="brand-photo" src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Nathaniel Johnson">
@@ -27,14 +28,18 @@
         </button>
 
         <nav class="nav-links">
+            <!-- Keep each endpoint name aligned with its route in app.py for the active state. -->
             <a href="{{ url_for('index') }}"class="{% if request.endpoint =='index' %} active{% endif %}">Home</a>
             <a href="{{ url_for('about') }}"class="{% if request.endpoint =='about' %} active{% endif %}">About</a>
             <a href="{{ url_for('projects') }}" class="{% if request.endpoint =='projects' %} active{% endif %}">Projects</a>
+            <a href="{{ url_for('testimonials') }}" class="{% if request.endpoint =='testimonials' %} active{% endif %}">Testimonials</a>
             <a href="{{ url_for('resume') }}" class="{% if request.endpoint =='resume' %} active{% endif %}">My Resume</a>
+            <a href="{{ url_for('faq') }}" class="{% if request.endpoint =='faq' %} active{% endif %}">FAQ</a>
             <a href="{{ url_for('contact') }}" class="{% if request.endpoint =='contact' %} active{% endif %}">Contact</a>
         </nav>
     </header>
 
+    <!-- Form status messages are created by Flask routes (currently the contact form). -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             <div class="flash-container">
@@ -49,6 +54,7 @@
         {% block content %}{% endblock %}
     </main>
 
+    <!-- Update shared identity and copyright text in this one footer. -->
     <footer class="footer">
         <div>
             <strong>Nathaniel Johnson</strong>

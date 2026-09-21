@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Testimonials | Nathaniel Johnson{% endblock %}
+
+{% block content %}
+<!-- Replace the approach statements below with attributed, permissioned feedback as it becomes available. -->
+<section class="page-hero section">
+    <p class="eyebrow">TESTIMONIALS</p>
+    <h1>Good work starts with <span>good collaboration.</span></h1>
+    <p>I value clear communication, thoughtful problem-solving, and leaving every project stronger than I found it.</p>
+</section>
+
+<section class="section testimonial-section">
+    <div class="section-heading">
+        <p class="eyebrow">WORKING TOGETHER</p>
+        <h2>A dependable approach to every project.</h2>
+        <p>As I continue building professional collaborations, this page will feature feedback from clients, teammates, and project partners.</p>
+    </div>
+
+    <!-- Duplicate a testimonial-card for each new testimonial; keep names and roles accurate. -->
+    <div class="testimonial-grid">
+        <article class="testimonial-card">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <p>Clear updates, practical thinking, and a commitment to getting the details right are the standards I bring to every collaboration.</p>
+            <footer><strong>Communication first</strong><span>How I work</span></footer>
+        </article>
+        <article class="testimonial-card featured">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <p>I approach problems with patience: understand the system, trace the cause, test the solution, and document what matters.</p>
+            <footer><strong>Built to be useful</strong><span>My development approach</span></footer>
+        </article>
+        <article class="testimonial-card">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <p>The best solution is one people can rely on. I focus on clean, maintainable work that solves a real need.</p>
+            <footer><strong>Practical by design</strong><span>What I aim to deliver</span></footer>
+        </article>
+    </div>
+</section>
+
+<section class="section cta">
+    <div>
+        <p class="eyebrow">LET'S WORK TOGETHER</p>
+        <h2>Have a project or opportunity in mind?</h2>
+    </div>
+    <a class="btn primary" href="{{ url_for('contact') }}">Start a conversation &rarr;</a>
+</section>
+{% endblock %}
