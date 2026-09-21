@@ -16,6 +16,9 @@ services:
         generateValue: true
       - key: SESSION_COOKIE_SECURE
         value: "true"
+      # Set this hash in Render's Environment page; it is never committed to Git.
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
       # The app reads this variable name in app.py; its value is never committed.
       - key: DATABASE_URL
         fromDatabase:

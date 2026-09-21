@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Contact Messages | Nathaniel Johnson{% endblock %}
+
+{% block content %}
+<!-- Private inbox: this page is protected by the admin_required decorator in app.py. -->
+<section class="section admin-messages-wrap">
+    <div class="admin-page-heading">
+        <div>
+            <p class="eyebrow">PRIVATE INBOX</p>
+            <h1>Contact <span>messages.</span></h1>
+            <p>{{ messages|length }} message{{ '' if messages|length == 1 else 's' }} received.</p>
+        </div>
+        <form method="POST" action="{{ url_for('admin_logout') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <button class="btn secondary" type="submit">Sign out</button>
+        </form>
+    </div>
+
+    {% if messages %}
+        <div class="message-list">
+            {% for message in messages %}
+                <article class="message-card">
+                    <div class="message-meta">
+                        <div><h2>{{ message['subject'] }}</h2><p>From <a href="mailto:{{ message['email'] }}">{{ message['name'] }} &lt;{{ message['email'] }}&gt;</a></p></div>
+                        <time>{{ message['created_at'] }}</time>
+                    </div>
+                    <p class="message-body">{{ message['message'] }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="admin-empty-state"><p>No contact messages have been received yet.</p></div>
+    {% endif %}
+</section>
+{% endblock %}

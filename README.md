@@ -42,6 +42,16 @@ To use a local PostgreSQL server, set `DATABASE_URL` to its connection string. T
 - Keep the `/health` route public because Render uses it to verify the service after deployment.
 - Use Render's deployment logs if the build fails. The configured build command is `pip install -r requirements.txt`, and the start command runs `gunicorn app:app`.
 
+### Private message inbox
+
+The `/admin/messages` page is protected by a password and is not linked in the public navigation. Before deploying, generate a password hash locally (the password is entered privately) and add the resulting value as `ADMIN_PASSWORD_HASH` in your Render web service's **Environment** settings:
+
+```powershell
+.venv\Scripts\python.exe -c "from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass('Admin password: ')))"
+```
+
+Do not store the plain password or its hash in `.env.example`, source code, or Git. Visit `/admin/login` to sign in after deployment. Admin sessions expire after 30 minutes.
+
 ## Production details
 
 - Gunicorn is used instead of Flask's development server.

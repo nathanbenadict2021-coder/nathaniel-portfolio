@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Admin Sign In | Nathaniel Johnson{% endblock %}
+
+{% block content %}
+<!-- Private contact-message access: password hash is configured only in Render. -->
+<section class="section admin-login-wrap">
+    <div class="admin-login-card">
+        <p class="eyebrow">PRIVATE ADMIN AREA</p>
+        <h1>View contact <span>messages.</span></h1>
+        {% if configured %}
+            <p>Sign in to view messages submitted through the contact form.</p>
+            <form class="admin-login-form" method="POST" action="{{ url_for('admin_login') }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <label>Password<input type="password" name="password" autocomplete="current-password" required autofocus></label>
+                <button class="btn primary" type="submit">Sign in</button>
+            </form>
+        {% else %}
+            <p>This private area has not been configured yet. Add <code>ADMIN_PASSWORD_HASH</code> in Render before signing in.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
