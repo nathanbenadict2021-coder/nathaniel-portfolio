@@ -16,14 +16,8 @@ services:
         generateValue: true
       - key: SESSION_COOKIE_SECURE
         value: "true"
+      # The app reads this variable name in app.py; its value is never committed.
       - key: DATABASE_URL
         fromDatabase:
-          name: nathaniel-portfolio-db
+          name: portfolio-db
           property: connectionString
-
-# The web service uses this database over Render's private network.
-databases:
-  - name: nathaniel-portfolio-db
-    plan: free
-    region: oregon
-    postgresMajorVersion: "17"

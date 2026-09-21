@@ -19,7 +19,7 @@ For local development, the database is created at `instance/portfolio.db`.
 
 1. Commit and push this repository to GitHub, including `render.yaml` and `.python-version`.
 2. In Render, select **New > Blueprint** and choose the repository. Render reads `render.yaml` and creates the web service.
-3. Review the service and database names and plans before confirming. The Blueprint creates a free Render PostgreSQL database named `nathaniel-portfolio-db` in the same region as the web service.
+3. Review the service settings before confirming. The Blueprint connects to your existing PostgreSQL 18 database named `portfolio-db`; it does not create a second database.
 4. Deploy. Render automatically generates `SECRET_KEY`, injects the database's private connection string as `DATABASE_URL`, serves the application with Gunicorn, and checks `/health`.
 5. Open the generated `onrender.com` URL and submit a test contact message. Redeploy once and confirm the message remains available in PostgreSQL.
 
