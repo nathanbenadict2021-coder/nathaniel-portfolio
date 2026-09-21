@@ -3,11 +3,21 @@ __pycache__/
 .venv/
 venv/
 env/
-portfolio.db
+# Local databases and development data must never be committed or deployed.
+*.db
+*.sqlite
+*.sqlite3
 instance/
+# Environment files can contain secrets; commit a separate .env.example only if needed.
 .env
+.env.*
+!.env.example
+# Private keys, certificate bundles, and locally exported credentials are never public assets.
+*.pem
+*.key
+*.p12
+*.pfx
+credentials/
+secrets/
 .vscode/
 .idea/
-.db
-.sqlite
-.sqlite3
