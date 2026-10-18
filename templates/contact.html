@@ -2,80 +2,69 @@
 {% block title %}Contact | Nathaniel Johnson{% endblock %}
 
 {% block content %}
-<!-- Contact details and social URLs: update this section whenever contact information changes. -->
-<section class="page-hero section">
+<section class="page-hero section contact-hero">
     <p class="eyebrow">GET IN TOUCH</p>
-    <h1>Let's build something <span>useful.</span></h1>
-    <p>Have a project, technical problem, or development opportunity? I would be glad to hear from you.</p>
+    <h1>Tell me about your project.</h1>
+    <p>Whether you need a WordPress website, custom Python software, or technical support, send me a few details and I’ll reply within 24 hours with questions and next steps. Free quote, no obligation.</p>
 </section>
 
-<section class="section contact-grid">
-    <div class="contact-info">
-        <h2>Contact details</h2>
-        <p>Send a message using the form, or connect with me directly through email or social media.</p>
-
-        <div class="contact-item">
-            <span class="contact-icon gmail-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img"><path fill="#EA4335" d="M3 5.5v13h3V9.1L3 6.85V5.5Zm18 0v13h-3V9.1l3-2.25V5.5Z"/><path fill="#4285F4" d="M3 18.5h3V9.1L3 6.85V18.5Z"/><path fill="#34A853" d="M18 18.5h3V6.85L18 9.1v9.4Z"/><path fill="#FBBC04" d="M6 9.1v9.4h12V9.1l-6 4.5-6-4.5Z"/><path fill="#EA4335" d="M3 5.5 12 12l9-6.5V4.8A1.8 1.8 0 0 0 19.2 3H4.8A1.8 1.8 0 0 0 3 4.8v.7Z"/></svg>
-            </span>
-            <div>
-                <small>EMAIL</small>
-                <a href="mailto:nathanbenadict2021@gmail.com">nathanbenadict2021@gmail.com</a>
-            </div>
+<section class="section contact-layout">
+    <form class="contact-form project-inquiry-form" method="POST" action="{{ url_for('contact') }}">
+        <div class="form-row">
+            <label>Your name<input type="text" name="name" placeholder="Full name" autocomplete="name" required></label>
+            <label>Email<input type="email" name="email" placeholder="you@example.com" autocomplete="email" required></label>
         </div>
-        <div class="contact-item contact-item-placeholder">
-            <span class="contact-icon phone-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img"><path d="M7.2 3.5 4.8 4.7c-.7.4-1 1.2-.8 1.9 1.6 6.6 6.8 11.8 13.4 13.4.7.2 1.5-.1 1.9-.8l1.2-2.4a1.5 1.5 0 0 0-.5-1.9l-3-1.9a1.5 1.5 0 0 0-1.8.2l-1.4 1.4a11.7 11.7 0 0 1-4.4-4.4l1.4-1.4a1.5 1.5 0 0 0 .2-1.8L9.1 4a1.5 1.5 0 0 0-1.9-.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-            </span>
-            <div>
-                <small>MOBILE</small>
-                <!-- Replace the # and displayed number with your mobile number when ready. -->
-                <a href="tel:+231773134913" aria-label="Mobile number">(+231) 773134913</a>
-            </div>
+        <label>What do you need?
+            <select name="service" required>
+                <option value="" selected disabled>Choose one</option>
+                <option>WordPress website</option>
+                <option>Python app</option>
+                <option>Web app (Flask)</option>
+                <option>IT / networking support</option>
+                <option>Not sure yet</option>
+            </select>
+        </label>
+        <div class="form-row">
+            <label>Budget range
+                <select name="budget">
+                    <option value="" selected>Select a range</option>
+                    <option>Under $250</option>
+                    <option>$250 to $500</option>
+                    <option>$500 to $1,000</option>
+                    <option>Above $1,000</option>
+                    <option>Not sure yet</option>
+                </select>
+            </label>
+            <label>Timeline
+                <select name="timeline">
+                    <option value="" selected>When do you need it?</option>
+                    <option>As soon as possible</option>
+                    <option>Within 1 month</option>
+                    <option>In 2 to 3 months</option>
+                    <option>Flexible</option>
+                </select>
+            </label>
         </div>
-        <div class="contact-item">
-            <span class="contact-icon location-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>
-            </span>
-            <div><small>LOCATION</small><strong>Monrovia, Liberia</strong></div>
-        </div>
-        <div class="contact-item">
-            <span class="contact-icon linkedin-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.33V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.28 2.38 4.28 5.48v6.27ZM5.31 7.41a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm-1.78 13.04h3.57V8.98H3.53v11.47Z" fill="currentColor"/></svg>
-            </span>
-            <div>
-                <small>LINKEDIN</small>
-                <a href="https://www.linkedin.com/in/nathaniel-johnson-2b33953b4" target="_blank" rel="noopener noreferrer">Linkedin Profile</a>
-            </div>
-        </div>
-        <div class="contact-item">
-            <span class="contact-icon github-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.13.64-1.39-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 6.8c.85 0 1.7.12 2.5.34 1.91-1.34 2.75-1.06 2.75-1.06.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.83-4.57 5.09.36.32.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" fill="currentColor"/></svg>
-            </span>
-            <div>
-                <small>GITHUB</small>
-                <a href="https://github.com/nathanbenadict2021-coder" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-            </div>
-        </div>
-        <div class="contact-item contact-item-placeholder">
-            <span class="contact-icon facebook-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img"><path d="M13.77 21v-8h2.68l.4-3.12h-3.08V7.89c0-.9.25-1.52 1.55-1.52H16.98V3.58A22.6 22.6 0 0 0 15.36 3c-1.61 0-2.71.98-2.71 2.79v2.09H10v3.12h2.65v8h1.12Z" fill="currentColor"/></svg>
-            </span>
-            <div>
-                <small>FACEBOOK</small>
-                <!-- Replace the # below with your Facebook profile URL when ready. -->
-                <a href="https://facebook.com/share/1C3Qz3Tgdd/" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile link">Facebook Profile</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Field names must match the values read and validated in app.py's contact route. -->
-    <form class="contact-form" method="POST" action="{{ url_for('contact') }}">
-        <label>Name<input type="text" name="name" placeholder="Your name" required></label>
-        <label>Email<input type="email" name="email" placeholder="you@example.com" required></label>
-        <label>Subject<input type="text" name="subject" placeholder="What can I help with?" required></label>
-        <label>Message<textarea name="message" rows="7" placeholder="Tell me about your project..." required></textarea></label>
-        <button class="btn primary" type="submit">Send message <span aria-hidden="true">→</span></button>
+        <label>Tell me about your project<textarea name="message" rows="6" maxlength="4500" placeholder="What are you trying to build or fix? Who is it for?" required></textarea></label>
+        <button class="btn primary quote-submit" type="submit">Get My Free Quote <span aria-hidden="true">→</span></button>
+        <p class="form-note">After you send this, I’ll reply within 24 hours with questions and next steps.</p>
     </form>
+
+    <aside class="contact-sidebar">
+        <section class="contact-panel contact-details-panel">
+            <h2>Prefer to chat?</h2>
+            <a class="whatsapp-link" href="https://wa.me/231773134913" target="_blank" rel="noopener noreferrer"><i class="bi bi-chat" aria-hidden="true"></i>Chat on WhatsApp</a>
+            <dl class="contact-facts">
+                <div><dt>EMAIL</dt><dd><a href="mailto:nathanbenadict2021@gmail.com">nathanbenadict2021@gmail.com</a></dd></div>
+                <div><dt>PHONE</dt><dd><a href="tel:+231773134913">(+231) 773134913</a></dd></div>
+                <div><dt>LOCATION</dt><dd>Monrovia, Liberia</dd></div>
+                <div><dt>WORKING HOURS</dt><dd>Mon to Sat, 8am to 6pm GMT (Liberia)</dd></div>
+            </dl>
+        </section>
+        <section class="contact-panel work-links-panel">
+            <h2>See my work</h2>
+            <div><a href="https://www.linkedin.com/in/nathaniel-johnson-2b33953b4" target="_blank" rel="noopener noreferrer">LinkedIn →</a><a href="https://github.com/nathanbenadict2021-coder" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+        </section>
+    </aside>
 </section>
 {% endblock %}

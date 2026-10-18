@@ -159,8 +159,14 @@ def create_app():
         if request.method == "POST":
             name = request.form.get("name", "").strip()
             email = request.form.get("email", "").strip()
-            subject = request.form.get("subject", "").strip()
+            subject = request.form.get("service", "").strip()
+            budget = request.form.get("budget", "").strip()
+            timeline = request.form.get("timeline", "").strip()
             message = request.form.get("message", "").strip()
+
+            # Keep optional project-planning details with the submitted message.
+            details = [f"Budget: {budget}" if budget else "", f"Timeline: {timeline}" if timeline else ""]
+            message = "\n".join([*filter(None, details), message]).strip()
 
             # Update validation limits when the contact form fields or database schema changes.
             if not all([name, email, subject, message]):

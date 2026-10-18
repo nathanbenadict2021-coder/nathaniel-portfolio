@@ -123,3 +123,7 @@
     .resume-hero { padding: 70px 0; }
     .entry-heading { display: grid; gap: 5px; }
 }
+
+/* Use the portfolio's teal-on-slate theme for the resume page accents. */
+.resume-hero::before, .resume-hero::after { background: rgba(64, 203, 163, .07); }
+.resume-summary, .resume-contact { background: #151e28; border-radius: 9px; }
