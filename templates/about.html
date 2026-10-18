@@ -2,127 +2,62 @@
 {% block title %}About | Nathaniel Johnson{% endblock %}
 
 {% block content %}
-<!-- Personal introduction: update background, location, and current role here. -->
-<section class="about-hero section">
-    <div class="about-hero-copy">
+<section class="section about-page-hero">
+    <div class="about-page-copy">
         <p class="eyebrow">ABOUT ME</p>
-        <h1>Building practical solutions, from <span>systems to software.</span></h1>
-        <p class="about-lead">
-            I am a self-taught technology professional with more than a decade of hands-on automotive
-            mechanical and electrical experience, now applying that same diagnostic mindset to software,
-            networking, and IT.
-        </p>
+        <h1>Practical solutions, from systems to software.</h1>
+        <p class="about-page-lead">I’m Nathaniel, a self-taught developer from Monrovia, Liberia. After years as an automotive mechanical and electrical technician, I bring a diagnostic mindset to software: find the real problem, fix it properly, and make sure it keeps working.</p>
+        <div class="about-tags"><span>WordPress websites</span><span>Python apps</span><span>Flask web apps</span><span>IT support</span></div>
         <div class="hero-buttons">
-            <a class="btn primary" href="{{ url_for('projects') }}">Explore my projects</a>
-            <a class="btn secondary" href="{{ url_for('resume') }}">View résumé</a>
+            <a class="btn primary" href="{{ url_for('contact') }}">Get a Free Quote</a>
+            <a class="btn secondary" href="{{ url_for('download_resume') }}">Download CV</a>
         </div>
     </div>
+    <div class="about-photo-column">
+        <div class="about-main-photo"><img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Nathaniel Johnson"></div>
+        <p><span aria-hidden="true"></span>Open for new projects</p>
+    </div>
+</section>
 
-    <div class="about-profile-card">
-        <div class="about-photo-wrap">
-            <img class="about-photo" src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Nathaniel Johnson">
+<section class="about-story-band">
+    <div class="about-story-inner">
+        <div class="about-story-title"><p class="eyebrow">MY BACKGROUND</p><h2>The diagnostic mindset.</h2></div>
+        <div class="about-story-copy">
+            <p>Finding electrical and mechanical faults taught me to trace a problem to its real cause before fixing it. I apply the same approach to code, networks, and websites: understand the problem, test the fix, and document what I built.</p>
+            <p>I’ve worked as a self-employed automotive mechanical and electrical technician since 2017, and I taught myself Python, web development, and networking alongside it.</p>
+            <div class="about-credentials"><span>Automotive technician since 2017</span><span>CCNA training, Cisco Networking Academy</span><span>Self-taught developer</span></div>
         </div>
-        <div class="profile-details">
-            <strong>Nathaniel Johnson</strong>
-            <span>Python Developer · Network Technician</span>
-            <span>Liberia</span>
-        </div>
     </div>
 </section>
 
-<!-- Narrative and working principles: tailor these to new experience or a changing focus. -->
-<section class="section about-intro-grid">
-    <div class="about-story">
-        <p class="eyebrow">MY APPROACH</p>
-        <h2>Technical work grounded in curiosity and real-world problem solving.</h2>
-        <p>
-            My background in automotive diagnostics taught me to observe carefully, trace problems to their
-            source, and make repairs that last. That same approach now guides how I build applications and
-            work with technology.
-        </p>
-        <p>
-            I learn by combining fundamentals with hands-on projects—planning a solution, building it,
-            testing it, improving it, and documenting what I learn along the way. I am especially interested
-            in work where software, networks, and physical systems meet.
-        </p>
-    </div>
-
-    <div class="about-principles">
-        <article>
-            <span>01</span>
-            <div><h3>Build with purpose</h3><p>Focus on useful, dependable solutions to practical problems.</p></div>
-        </article>
-        <article>
-            <span>02</span>
-            <div><h3>Learn continuously</h3><p>Strengthen skills through deliberate study and applied projects.</p></div>
-        </article>
-        <article>
-            <span>03</span>
-            <div><h3>Understand the system</h3><p>Connect hardware, networks, data, and software instead of treating them in isolation.</p></div>
-        </article>
+<section class="section about-tools-section">
+    <div class="section-heading"><p class="eyebrow">WHAT I WORK WITH</p><h2>Skills across software, web, networks, and vehicles.</h2></div>
+    <div class="about-tools-grid">
+        <article><h3>Software</h3><ul><li>Python and OOP</li><li>Flask</li><li>PyQt6</li><li>SQLite</li><li>REST API fundamentals</li><li>Git and GitHub</li></ul></article>
+        <article><h3>Web</h3><ul><li>WordPress</li><li>HTML5 and CSS3</li><li>JavaScript fundamentals</li><li>Responsive interfaces</li></ul></article>
+        <article><h3>IT and networking</h3><ul><li>Windows and Linux troubleshooting</li><li>TCP/IP</li><li>Cisco networking</li></ul></article>
+        <article><h3>Automotive</h3><ul><li>Electrical fault finding</li><li>OBD-II</li><li>Sensors</li><li>Wiring</li></ul></article>
     </div>
 </section>
 
-<!-- Capabilities cards: add, remove, or revise skills as they are gained. -->
-<section class="section">
-    <div class="section-heading">
-        <p class="eyebrow">CAPABILITIES</p>
-        <h2>A growing, hands-on technology stack.</h2>
-        <p>Tools and areas I use to build, troubleshoot, and support practical technology solutions.</p>
-    </div>
+<section class="about-featured-wrap">
+    <article class="about-featured-project">
+        <div class="about-project-preview"><span>[ ScanNova dashboard screenshot ]</span></div>
+        <div class="about-project-copy"><p class="tag">WHERE IT ALL COMES TOGETHER</p><h2>ScanNova</h2><p>A vehicle diagnostics dashboard that combines my automotive and Python skills: it reads OBD-II data and shows it on one clear screen.</p><a href="{{ url_for('projects') }}">See the project &rarr;</a></div>
+    </article>
+</section>
 
-    <div class="capability-grid">
-        <article class="capability-card">
-            <p class="capability-number">01</p>
-            <h3>Software development</h3>
-            <p>Python, object-oriented programming, Flask, PyQt6, SQLite, REST API fundamentals, Git, and GitHub.</p>
-        </article>
-        <article class="capability-card">
-            <p class="capability-number">02</p>
-            <h3>Web development</h3>
-            <p>Responsive interfaces and Flask applications using HTML5, CSS3, JavaScript fundamentals, and reusable templates.</p>
-        </article>
-        <article class="capability-card">
-            <p class="capability-number">03</p>
-            <h3>IT &amp; networking</h3>
-            <p>Windows and Linux troubleshooting, TCP/IP, network configuration, Cisco networking, and technical support.</p>
-        </article>
-        <article class="capability-card">
-            <p class="capability-number">04</p>
-            <h3>Automotive technology</h3>
-            <p>Electrical fault finding, vehicle diagnostics, wiring, preventive maintenance, sensors, and OBD-II systems.</p>
-        </article>
+<section class="about-availability-band">
+    <div class="about-availability-grid">
+        <article><span>AVAILABILITY</span><strong>Open for new projects</strong></article>
+        <article><span>WORKING</span><strong>Remote, from Monrovia</strong></article>
+        <article><span>HOURS</span><strong>Mon to Sat, 8am to 6pm GMT</strong></article>
+        <article><span>REPLY TIME</span><strong>Within 24 hours</strong></article>
     </div>
 </section>
 
-<!-- Current-focus timeline: update this section when priorities change. -->
-<section class="section about-focus">
-    <div class="section-heading">
-        <p class="eyebrow">CURRENT FOCUS</p>
-        <h2>Where I am headed next.</h2>
-    </div>
-
-    <div class="timeline">
-        <article class="timeline-item">
-            <span>01</span>
-            <div><h3>Professional Python development</h3><p>Strengthening software architecture, APIs, testing practices, and clean, maintainable code.</p></div>
-        </article>
-        <article class="timeline-item">
-            <span>02</span>
-            <div><h3>Network engineering</h3><p>Building on CCNA training to develop stronger network configuration and troubleshooting skills.</p></div>
-        </article>
-        <article class="timeline-item">
-            <span>03</span>
-            <div><h3>Automotive diagnostics &amp; software</h3><p>Combining Python development with computer-based diagnostics and OBD-II technology.</p></div>
-        </article>
-    </div>
-</section>
-
-<section class="section cta about-cta">
-    <div>
-        <p class="eyebrow">LET'S CONNECT</p>
-        <h2>Interested in working together?</h2>
-    </div>
-    <a class="btn primary" href="{{ url_for('contact') }}">Start a conversation</a>
+<section class="section about-page-cta">
+    <h2>Have a project in mind? Let’s talk about it.</h2>
+    <a class="btn primary" href="{{ url_for('contact') }}">Get a Free Quote <span aria-hidden="true">&rarr;</span></a>
 </section>
 {% endblock %}
