@@ -1,112 +1,60 @@
 {% extends "base.html" %}
-{% block title %}Nathaniel Johnson | Python Developer{% endblock %}
+{% block title %}Nathaniel Johnson | Web & Software Developer{% endblock %}
 
 {% block content %}
-<!-- Homepage introduction: update this copy, calls to action, and skill highlights as the portfolio evolves. -->
-<section class="hero section">
+<section class="hero section home-hero">
     <div class="hero-copy reveal">
-        <p class="eyebrow">PYTHON DEVELOPER · SOFTWARE BUILDER</p>
-        <h1>Turning ideas into <span>useful software.</span></h1>
-        <p class="hero-text">
-            I'm Nathaniel Johnson, a self-taught developer focused on Python,
-            Flask, desktop applications, databases, networking and practical
-            technology solutions.
-        </p>
-
+        <p class="eyebrow">WEB &amp; SOFTWARE DEVELOPER · MONROVIA, LIBERIA</p>
+        <h1>WordPress websites and Python software, built to work.</h1>
+        <p class="hero-text">Hi, I’m Nathaniel. I build WordPress websites and custom Python apps for small businesses and organizations, from first idea to launch.</p>
         <div class="hero-buttons">
-            <a class="btn primary" href="{{ url_for('projects') }}">View My Projects</a>
-            <a class="btn secondary" href="{{ url_for('contact') }}">Let's Work Together</a>
-            <a class="btn secondary" href="{{ url_for('resume') }}">
-                <i class="bi bi-cloud-arrow-down-fill button-icon" aria-hidden="true"></i>
-                Download CV
-            </a>
-        </div>
-
-        <div class="quick-stats">
-            <div><strong>Python</strong><span>Core Language</span></div>
-            <div><strong>Flask</strong><span>Web Development</span></div>
-            <div><strong>SQLite</strong><span>Data Storage</span></div>
+            <a class="btn primary" href="{{ url_for('contact') }}">Get a Free Quote</a>
+            <a class="btn secondary" href="{{ url_for('projects') }}">View My Work</a>
+            <a class="cv-link" href="{{ url_for('download_resume') }}">Download CV</a>
         </div>
     </div>
-
-    <div class="terminal-card reveal">
-        <div class="terminal-top">
-            <span style="background:rgb(237, 95, 95);"></span><span style="background:rgb(85, 237, 93);"></span><span style="background:rgb(237, 237, 237);"></span>
-        </div>
+    <div class="terminal-card reveal" aria-label="Code terminal preview">
+        <div class="terminal-top"><span></span><span></span><span></span></div>
         <div class="terminal-body">
-            <p><span class="green">nathaniel@dev</span>:<span class="blue">~</span>$ python</p>
-            <p class="muted">>>> developer = "Nathaniel Johnson"</p>
-            <p class="muted">>>> skills = ["Python", "Flask", "Django"]</p>
-            <p class="muted">>>> developer.build()</p>
+            <p class="terminal-prompt">nathaniel@dev:~$ python</p>
+            <p><span class="green">&gt;&gt;&gt;</span> developer = "Nathaniel Johnson"</p>
+            <p><span class="green">&gt;&gt;&gt;</span> services = ["WordPress", "Python", "Flask"]</p>
+            <p><span class="green">&gt;&gt;&gt;</span> developer.build()</p>
             <p class="output">Building something useful...</p>
-            <p><span class="green">✓</span> Ready to create.</p>
+            <p class="output">✓ Ready to create.</p>
         </div>
     </div>
 </section>
 
-<!-- Services summary: edit or add cards to reflect the work currently offered. -->
-<section class="section">
+<section class="section services-section">
     <div class="section-heading">
         <p class="eyebrow">WHAT I DO</p>
-        <h2>Development focused on real-world problems.</h2>
+        <h2>Websites and software that bring you customers and save you time.</h2>
     </div>
+    <div class="home-services">
+        <article class="card"><i class="bi bi-window" aria-hidden="true"></i><h3>WordPress Websites</h3><p>Professional, mobile-friendly websites for businesses, organizations, and online stores. Easy for you to edit yourself, with no coding needed after launch.</p></article>
+        <article class="card"><i class="bi bi-code-slash" aria-hidden="true"></i><h3>Custom Python Software</h3><p>Desktop apps, dashboards, and automation tools built around how your business actually works, from inventory and reports to vehicle diagnostics.</p></article>
+        <article class="card"><i class="bi bi-database" aria-hidden="true"></i><h3>Web Apps (Flask)</h3><p>Custom web tools such as booking systems, listings, and customer portals, with a database behind them.</p></article>
+        <article class="card"><i class="bi bi-diagram-3" aria-hidden="true"></i><h3>Technical Support &amp; Networking</h3><p>CCNA-trained setup and troubleshooting, so your website, systems, and network keep working after I deliver them.</p></article>
+    </div>
+    <div class="service-note"><p>Based in Monrovia, Liberia. Working with clients locally and worldwide. Fast replies, clear pricing, and support after launch.</p><a class="btn primary" href="{{ url_for('contact') }}">Get a Free Quote</a></div>
+</section>
 
-    <div class="cards three fr-3">
-        <article class="card">
-            <div class="icon">⌘</div>
-            <h3>Python Development</h3>
-            <p>Building automation, desktop software, APIs and practical tools with Python.</p>
-        </article>
-        <article class="card">
-            <div class="icon">⌬</div>
-            <h3>Web Applications</h3>
-            <p>Creating clean, responsive applications with Flask, Django, HTML, CSS and JavaScript.</p>
-        </article>
-        <article class="card">
-            <div class="icon">◈</div>
-            <h3>Systems &amp; Networking</h3>
-            <p>Combining software knowledge with hands-on computer, networking and technical troubleshooting skills.</p>
-        </article>
+<section class="section featured-section">
+    <div class="section-heading"><p class="eyebrow">FEATURED WORK</p><h2>Software I’ve built for real vehicles and real problems.</h2></div>
+    <article class="featured-project">
+        <div class="project-preview"><span>[ ScanNova dashboard screenshot goes here ]</span></div>
+        <div class="project-description"><p class="tag">DESKTOP APP · PYTHON · PYQT6</p><h3>ScanNova</h3><p>A vehicle diagnostics dashboard that reads OBD-II data and shows it on one clear screen, so a mechanic can spot a problem faster.</p><a href="{{ url_for('projects') }}">See the project →</a></div>
+    </article>
+    <div class="home-metrics">
+        <div><strong>[#]</strong><span>Projects delivered</span></div>
+        <div><strong>CCNA &amp; Python</strong><span>Certificates</span></div>
+        <div><strong>Self-taught</strong><span>Always learning, always building</span></div>
     </div>
 </section>
 
-<!-- Experience metrics: keep the figures and certifications accurate. -->
-<section class="section">
-    <div class="section-heading">
-        <p class="eyebrow">EXPERIENCE</p>
-        <h2>Real-world problems I have solved and knowledge obtained.</h2>
-    </div>
-
-    <div class="cards three fr-4">
-        <article class="card">
-            <i class="bi bi-code-slash bootstrap-card-icon" aria-hidden="true"></i>
-            <h3>10+</h3>
-            <p>Projects Completed</p>
-        </article>
-        <article class="card">
-            <i class="bi bi-briefcase bootstrap-card-icon" aria-hidden="true"></i>
-            <h3>10+</h3>
-            <p>Years Experience</p>
-        </article>
-        <article class="card">
-            <i class="bi bi-mortarboard bootstrap-card-icon" aria-hidden="true"></i>
-            <h3>CCNA &amp; Python</h3>
-            <p>Certificates</p>
-        </article>
-        <article class="card">
-            <i class="bi bi-cup-hot bootstrap-card-icon" aria-hidden="true"></i>
-            <h3>Self-Taught</h3>
-            <p>Always Learning</p>
-        </article>
-    </div>
-</section>
-
-<!-- Shared-style conversion section; change its link if the preferred next action changes. -->
-<section class="section cta">
-    <div>
-        <p class="eyebrow">HAVE A PROJECT?</p>
-        <h2>Let's build something valuable.</h2>
-    </div>
-    <a class="btn primary" href="{{ url_for('contact') }}">Contact Me →</a>
+<section class="section cta home-cta">
+    <div><p class="eyebrow">HAVE A PROJECT?</p><h2>Let’s build something valuable.</h2></div>
+    <a class="btn primary" href="{{ url_for('contact') }}">Get a Free Quote</a>
 </section>
 {% endblock %}
