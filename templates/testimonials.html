@@ -1,46 +1,53 @@
 {% extends "base.html" %}
-{% block title %}Testimonials | Nathaniel Johnson{% endblock %}
+{% block title %}How I Work | Nathaniel Johnson{% endblock %}
 
 {% block content %}
-<!-- Replace the approach statements below with attributed, permissioned feedback as it becomes available. -->
-<section class="page-hero section">
-    <p class="eyebrow">TESTIMONIALS</p>
-    <h1>Good work starts with <span>good collaboration.</span></h1>
-    <p>I value clear communication, thoughtful problem-solving, and leaving every project stronger than I found it.</p>
+<section class="page-hero section work-hero">
+    <p class="eyebrow">HOW I WORK</p>
+    <h1>Good work starts with good collaboration.</h1>
+    <p>Clear communication, careful problem-solving, and leaving every project in better shape than I found it. This is how I approach each project.</p>
 </section>
 
-<section class="section testimonial-section">
-    <div class="section-heading">
-        <p class="eyebrow">WORKING TOGETHER</p>
-        <h2>A dependable approach to every project.</h2>
-        <p>As I continue building professional collaborations, this page will feature feedback from clients, teammates, and project partners.</p>
-    </div>
-
-    <!-- Duplicate a testimonial-card for each new testimonial; keep names and roles accurate. -->
-    <div class="testimonial-grid">
-        <article class="testimonial-card">
-            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-            <p>Clear updates, practical thinking, and a commitment to getting the details right are the standards I bring to every collaboration.</p>
-            <footer><strong>Communication first</strong><span>How I work</span></footer>
+<section class="section work-principles-section">
+    <div class="work-principle-grid">
+        <article class="work-principle-card">
+            <i class="bi bi-chat" aria-hidden="true"></i>
+            <h2>Communication first</h2>
+            <p>Clear updates, practical thinking, and attention to detail, from the first message to launch day.</p>
         </article>
-        <article class="testimonial-card featured">
-            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-            <p>I approach problems with patience: understand the system, trace the cause, test the solution, and document what matters.</p>
-            <footer><strong>Built to be useful</strong><span>My development approach</span></footer>
+        <article class="work-principle-card">
+            <i class="bi bi-code-slash" aria-hidden="true"></i>
+            <h2>Built to be useful</h2>
+            <p>I take time to understand the problem, trace it, test the fix, and document what I built so you can use it without me.</p>
         </article>
-        <article class="testimonial-card">
-            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-            <p>The best solution is one people can rely on. I focus on clean, maintainable work that solves a real need.</p>
-            <footer><strong>Practical by design</strong><span>What I aim to deliver</span></footer>
+        <article class="work-principle-card">
+            <i class="bi bi-check-circle" aria-hidden="true"></i>
+            <h2>Practical by design</h2>
+            <p>Clean, maintainable work that meets a real need, not extra features you didn’t ask for.</p>
         </article>
     </div>
 </section>
 
-<section class="section cta">
-    <div>
-        <p class="eyebrow">LET'S WORK TOGETHER</p>
-        <h2>Have a project or opportunity in mind?</h2>
+<section class="work-process-band">
+    <div class="work-process-inner">
+        <h2>What working together looks like.</h2>
+        <div class="work-process-grid">
+            <article><span>01</span><h3>We talk</h3><p>You tell me what you need. I ask questions and send a clear quote.</p></article>
+            <article><span>02</span><h3>I plan</h3><p>We agree on what gets built, what it costs, and when it’s done.</p></article>
+            <article><span>03</span><h3>I build</h3><p>You see progress along the way and can ask for changes early.</p></article>
+            <article><span>04</span><h3>Launch and support</h3><p>I hand it over, show you how to use it, and stay available after launch.</p></article>
+        </div>
     </div>
-    <a class="btn primary" href="{{ url_for('contact') }}">Start a conversation &rarr;</a>
+</section>
+
+<section class="section first-client-section">
+    <div class="first-client-card">
+        <div>
+            <p class="eyebrow">NOW BOOKING</p>
+            <h2>Be one of my first clients.</h2>
+            <p>I’m building my client portfolio. If you’d like to be one of my first clients, I offer a discounted rate on selected projects.</p>
+        </div>
+        <a class="btn primary" href="{{ url_for('contact') }}">Start a conversation <span aria-hidden="true">&rarr;</span></a>
+    </div>
 </section>
 {% endblock %}
